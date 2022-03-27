@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package main;
+
+option go_package = "github.com/NRI.service/pkg/pb;pb";
+
+message ServiceRequest {
+  string house = 1;
+  string street = 2;
+}
+
+message ServiceResponse {
+  string equipment_url=1;
+}
+
+service NRI {
+  rpc Check (ServiceRequest) returns (ServiceResponse);
+}

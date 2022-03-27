@@ -1,0 +1,22 @@
+version: "3.9"
+
+services:
+  crm:
+    build: ./CRM/
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:/opt/oss_system
+    networks:
+      - oss_system
+
+  nri:
+    build: ./NRI/
+    ports:
+      - "8080:8080"
+    networks:
+      - oss_system
+
+networks:
+  oss_system:
+    driver: bridge
